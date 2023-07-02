@@ -15,6 +15,8 @@
     - 단점
 5. 소감
 
+---
+
 **설명하지 않을 내용 : 기초적인 Git의 내용 <sub>ex. push, remote, Git, GitHub, GitLab</sub>**
 
 # 공유 목적
