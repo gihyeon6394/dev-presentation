@@ -44,14 +44,14 @@
 
 ### 3.1. 유지보수와 테스트 코드
 
-<img src="img_2.png"  width="70%"/>
+<img src="img_2.png"  width="80%"/>
 
 - 유지보수성을 증가시키자
 - 이 소스는 나만 만지는 것이 아니다
 
 ### 3.2. build -> test -> deploy
 
-<img src="img_3.png"  width="70%"/>
+<img src="img_3.png"  width="80%"/>
 
 - 서비스 라이프사이클에서 부재 중인 Test의 중요성
 
