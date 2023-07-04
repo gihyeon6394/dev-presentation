@@ -17,7 +17,7 @@
 
 ## 1. 테스트 도입의 발단
 
-<img src="img.png"  width="85%"/>
+<img src="img_5.png"  width="90%"/>
 
 - WAS 에서 Oracle Procedure를 호출하여 Oracle Cursor를 무분별하게 사용 중
 - 이는 접속자수 (Oracle 접속 Session)가 많아지면 Oracle에 부하를 줄 위험이 있음
@@ -25,7 +25,7 @@
 
 ## 2. 작업 계획
 
-<img src="img_1.png"  width="70%"/>
+<img src="img_1.png"  width="80%"/>
 
 #### 작업 target
 
@@ -46,14 +46,13 @@
 
 <img src="img_2.png"  width="80%"/>
 
-- 유지보수성을 증가시키자
-- 이 소스는 나만 만지는 것이 아니다
+- 유지보수 용이
 
 ### 3.2. build -> test -> deploy
 
 <img src="img_3.png"  width="80%"/>
 
-- 서비스 라이프사이클에서 부재 중인 Test의 중요성
+- 서비스 라이프사이클에서 부재 중인 Test의 위험성
 
 ## 4. 테스트 방법
 
@@ -69,11 +68,11 @@
 1. 기존의 메서드와 새로운 메서드가 반환하는 객체 자체에 대한 비교
     - e.g. as-is 가 리턴하는 map과 to-be 의 map에 대한 `equals()` 비교
 2. 새로운 메서드에 대한 단위 테스트 작성
-    - 추후 또 다른 수정작업에 대비한다
+    - 추후 또 다른 수정작업에 대비
 
 ## 5. 테스트 코드 소개
 
-### 5.1. as-is 코드와 to-be 코드 동작 비교
+### 5.1. as-is 코드와 to-be 코드의 동작 일치 비교
 
 ```java
 
