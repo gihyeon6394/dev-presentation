@@ -4,7 +4,7 @@
 2. JDBC의 발전 과정
 3. JPA 소개
 4. JPA의 차별점
-5. JPA 적용 전략 (ing)
+5. JPA 적용 전략 (진행중)
 6. 주의사항
 
 ---
@@ -115,7 +115,7 @@ System.out.println(karina1 == karina2); // true
 
 ````
 
-- JPA는 같은 EntityManger에서의 Entity에 대한 객체 일관성을 보장한다 (identity)
+- JPA는 같은 EntityManger에서의 Entity에 대한 객체 동일성을 보장한다 (identity)
 
 ### 4.2 캐시
 
@@ -123,7 +123,7 @@ System.out.println(karina1 == karina2); // true
 
 - EntityManager의 1차 캐시에 동일한 `@Id`로 캐시가 있으면, DB 조회를 하지 않고 캐시에서 조회
     - JVM 메모리 절약 : 1차 캐시에 존재하는 객체는 GC 대상이 아님, Heap에 인스턴스 하나
-    - Database의 동일한 row에 대한 JVM 객체 일관성 확보
+    - Database의 동일한 row에 대한 JVM 객체 동일성 확보
     - DB 조회 절약 : 1차 캐시에 존재하는 객체는 DB 조회를 하지 않음
 
 <img src="img_10.png"  width="80%"/>
