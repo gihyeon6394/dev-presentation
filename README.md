@@ -2,4 +2,4 @@
 
 -  [Git-flow 도입의 회고](git_flow/README.md)
 -  [테스트 코드 도입해서 레거시 수정하기](JUnit/README.md)
-
+- [JPA 도입](hello_jpa/README.md)

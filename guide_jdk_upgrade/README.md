@@ -4,6 +4,7 @@
 2. Java EE와 Jakarta
 3. Spring과 Java EE
 4. Spring framework
+5. 
 5. Spring boot
 6. 결론
 
@@ -74,7 +75,7 @@ import jakarta.servlet.http.HttpServletRequest; // Jakarta EE
 - spring boot는 Java 17을 필수로 요구한다
 
 ## 4. 결론
-
+<img src="img_11.png"  width="70%"/>
 
 
 ## 번외) 그렇다면 무엇을 많이들 쓰고있는가?
