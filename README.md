@@ -3,3 +3,8 @@
 - [Git-flow 도입의 회고](git_flow/README.md)
 - [테스트 코드 도입해서 레거시 수정하기](JUnit/README.md)
 - [JPA 소개](hello_jpa/README.md)
+- Java 8 주요 정리
+   - [[JAVA, SPRING] 버전 선택 가이드 2023](https://kghworks.tistory.com/137)
+   - [Java 8 사용하기 : 가독성과 유연성, 람다와 Streams API](https://kghworks.tistory.com/140)
+   - [Java 8 사용하기 : Optional로 Null 지혜롭게 다루기](https://kghworks.tistory.com/141)
+   - [Java 8 사용하기 : default method](https://kghworks.tistory.com/142)
