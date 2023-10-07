@@ -8,3 +8,7 @@
    - [Java 8 사용하기 : 가독성과 유연성, 람다와 Streams API](https://kghworks.tistory.com/140)
    - [Java 8 사용하기 : Optional로 Null 지혜롭게 다루기](https://kghworks.tistory.com/141)
    - [Java 8 사용하기 : default method](https://kghworks.tistory.com/142)
+   - [Java 8 사용하기 : 람다와 스트림으로 리팩터링](https://kghworks.tistory.com/145)
+- 개발일지
+  - [Java application에서 RDBMS에 batch insert](https://kghworks.tistory.com/144)
+  - [채번(採番) 개발하기](https://kghworks.tistory.com/148)
