@@ -12,3 +12,4 @@
 - 개발일지
   - [Java application에서 RDBMS에 batch insert](https://kghworks.tistory.com/144)
   - [채번(採番) 개발하기](https://kghworks.tistory.com/148)
+- [Spring 패키지 설계하기](design_package_spring/README.md)
