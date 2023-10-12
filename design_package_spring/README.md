@@ -4,11 +4,12 @@
     - 패키지 기본구조 계층형? 기능 기반? 헥사고날?
 2. Repository 구조
     - Spring Data JPA만 쓰지 않는다
+    - 구현체 분리 유용함 (예시)
 3. DTO 사용 전략
     - DTO 사용여부 정하기
     - DTO 사용 계층과 변환 전략
-    - 변환 전략 (번외)
-4. 참고
+    - 또 다른 변환 전략 (번외)
+4. 마무리
 
 ---
 
@@ -16,7 +17,7 @@
 
 ### 계층형 아키텍처
 
-<img src="img.png"  width="80%"/>
+<img src="img.png"  width="60%"/>
 
 - 전통적이고, 단순한 구조 (수평적)
 - 구조 파악 용이
@@ -24,14 +25,31 @@
 - application이 커지면 패키지가 비대해짐
 - DB 의존적 설계
 
-<img src="img_1.png"  width="60%"/>
+#### 장점
+
+- 빠른 구조파악과 단순한 구조
+
+#### 단점
+
+<img src="img_1.png"  width="50%"/>
+
+- 업무 도메인에 대한 설명이 패키지 수준에서 이루어지 모함
+- application 규모가 커지면 패키지가 비대해짐
+    - 패키지 수는 그대로, 클래스만 증가
+- DB 의존적 설계
+    - DB 변경 시 수정 범위가 넓어짐
+    - 테이블 생성시마다 늘어나는 service 계층
 
 ### 기능 기반 아키텍처
 
-<img src="img_2.png"  width="80%"/>
+<img src="img_2.png"  width="60%"/>
 
 - 연관된 기능 (도메인) 단위로 패키징 (수직)
 - 클래스 상위 구조 (패키지)에서 업무에 대한 설명이 추가됨
+
+#### 장점
+
+- 전체 업무 파악을 패키지 수준에서 진행
 - 특정 use-case 수정 시 변경해야하는 단위는 패키지가 됨
 
 ### 헥사고날
@@ -41,6 +59,8 @@
 - port, adapter를 통해 외부와 내부를 분리
 - DB 계층에 대한 의존성 역전
 - 클래스 패키지가 많아짐
+- 단점 : 패키지, 클래스 양 증가
+- 장점 : 도메인 강결합, MSA 적합
 
 ### 나의 선택 : 기능 기반 패키지
 
@@ -52,27 +72,29 @@
 
 ## 2. Repository 구조
 
-### 현재 이서비스는
+### Spring Data JPA만 쓰지 않는다
+
+<img src="img_9.png"  width="40%"/>
 
 - DB 접근 기술 : JPA Hibernate
     - JPA 중에서도 간단한 CRUD는 Spring Data JPA
-    - 더 복잡한 query는 Querydsl
-    - 더 복잡한 query는 MyBatis
+    - 더 복잡한 query는 QueryDSL
+    - 보다 더 복잡한 query는 MyBatis
 - 기술별 사용 비율
     - 95% JPA + 5% MyBatis (native query)
     - JPA 안에서는
-        - 40% Spring Data JPA + 60% Querydsl
+        - 40% Spring Data JPA + 60% QueryDSL
 
-### 단순한 구조
+#### 단순한 구조
 
 <img src="img_7.png"  width="60%"/>
 
 - Compile-error : Interface의 private 멤버 발생
     - 타 기술을 위한 의존성 주입을 위한 필드
-- Repository에 query method, Querydsl, nativeq query … (장황)
+- Repository에 query method, QueryDSL, nativeq query … (장황)
 - Repository의 높은 DB 벤더사 의존도
 
-### 개선한 구조
+#### 개선한 구조
 
 <img src="img_3.png"  width="80%"/>
 
@@ -81,9 +103,11 @@
 - `UserRepositoryCustom` : Spring Data JPA query method가 불가능한 기능 명세
 - `UserRepositoryCustomImpl` : `UserRepositoryCustom` 구현체
     - Spring Data JPA 를 제외한 DB 접근 기술 사용
-    - e.g. querydsl, mybatis, jdbc 등
+    - e.g. queryDSL, mybatis, jdbc 등
 
-#### 장점
+### 구현체 분리 유용함 (예시)
+
+<img src="img_10.png"  width="80%"/>
 
 - JPA 의존 Repository와 비의존 분리
 - DB 벤더사 변경 시 수정 범위 명확
@@ -92,27 +116,7 @@
 
 ### DTO 사용여부 정하기
 
-#### DTO (Data Transfer Object)가 필요할 때?
-
-- JPA는 DB table과 1:1 매칭되는 Entity 존재
-- Entity를 전 계층에 걸쳐 사용할 것인가
-- app이 작다면 문제 없음 (오히려 지향)
-- app의 규모가 커지면?
-    - 단순 조회, 통계, 복잡한 비즈니스 등
-
-#### DTO 가 있으면
-
-- DB 구조 캡슐화 (외부 서버 연동 부담 없음)
-- Table과 관계 없이 복잡한 객체구조 설계
-- 코드량 감소 (N개의 파라미터 -> 1개의 DTO)
-
-#### 이 서비스에 DTO가 필요한 이유
-
-- DB Tuple 을 모두 Java Map에 담고 있음
-- NPE 위험 - 해당 Key가 없다면?
-- JPA 도입 후 장황해지는 Entity
-    - `@Transient` 필드
-    - DB, 비즈니스로직 양쪽에 의존하는 Entity
+<img src="img_11.png"  width="80%"/>
 
 ### DTO 사용 계층과 변환 전략
 
@@ -157,7 +161,7 @@ public class DtoConverter {
 }
 ````
 
-### 변환 전략 (번외)
+### 또 다른 변환 전략 (번외)
 
 ````
 @Entity
@@ -176,6 +180,13 @@ public class User{
 - 장점 : DTOConverter 클래스 생성 불필요
 - 단점 : Entity와 DTO 강결합
 
-## 5. 참고
+## 4. 마무리
+
+<img src="img_12.png"  width="80%"/>
+
+---
+
+### 참고
 
 - [[NHN FORWARD 22] 클린 아키텍처 애매한 부분 정해 드립니다.](https://youtu.be/g6Tg6_qpIVc)
+- [[Spring Camp 2023] 대규모 엔터프라이즈 시스템 개선 경험기 (네이버 쇼핑 김선철)](https://youtu.be/u_y6UGzOPUk?list=PLdHtZnJh1KdbR9xXyiVJ-BClLTXCw66y3&t=2259)
