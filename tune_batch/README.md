@@ -70,6 +70,8 @@
 
 ### Bulk Insert sql 문
 
+<img src="img_2.png"  width="80%"/>
+
 ```SQL
 -- 1. ROW 수만큼 INSERT STATEMENT
 INSERT INTO TB1 (COL1, COL2, COL3, ...) VALUES(VAL1, VAL2, VAL3, ...);
@@ -142,6 +144,8 @@ END 채번_디비_펑션;
     - 채번 데이터 컬럼 Index
 
 ### 비동기, 병렬 프로그래밍
+
+<img src="img_3.png"  width="80%"/>
 
 ````
 // fork 1 : table 1 insert
