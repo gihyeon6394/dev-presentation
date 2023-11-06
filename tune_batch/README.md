@@ -260,9 +260,8 @@ public void jdbc_template_native_query_async(int bulkSizeParam) throws Exception
 
 ### 메시지 큐 시스템
 
-<img src="img_1.png"  width="70%"/>
+<img src="img_1.png"  width="30%"/>
 
-- AWS Summit 2023 Confluent 부스에서 나오며...
 - 서버간의 강결합
     - was - db 강결합
     - was - smtp 강결합
