@@ -256,7 +256,7 @@ public void jdbc_template_native_query_async(int bulkSizeParam) throws Exception
 - Heap 모니터링 : visualVM, HeapDump
 - 성능 측정: JMH
 - 테스트 : JUnit
-- 추가 공부 : 책 자바 성능 튜닝 이야기 (스터디 링크 : https://github.com/gihyeon6394/java-tune)
+- [스터디](https://github.com/gihyeon6394/java-tune)
 
 ### 메시지 큐 시스템
 
@@ -269,6 +269,7 @@ public void jdbc_template_native_query_async(int bulkSizeParam) throws Exception
     - 서버간의 통신 메시지 큐 (Kafka, RabbitMQ)
 - 서버 간의 통신은 이벤트 기반 비동기 메시지 큐 시스템으로
     - EDA (Event Driven Architecture)
+- [스터디](https://github.com/gihyeon6394/dev-essentials/blob/main/Kafka_The_Definitive_Guide/README.md)
 
 #### Kafka 주요 특징
 
