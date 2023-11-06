@@ -99,7 +99,7 @@ SELECT VAL1, VAL2, VAL3, ... FROM DUAL;
 COMMIT;
 ```
 
-### 채번 로직
+### 채번 전략
 
 ```SQL
 -- 채번에 사용할 Oracle Sequence
@@ -139,7 +139,7 @@ END 채번_디비_펑션;
 - 하루 최대 999개의 채번 보장
 - 채번 데이터 컬럼 사이즈 유한
 - 탄력적 운용
-    - Oracle Suquence MAXVALUE 조절
+    - Oracle Sequence MAXVALUE 조절
     - Cache 옵션 조절
     - 채번 데이터 컬럼 Index
 
