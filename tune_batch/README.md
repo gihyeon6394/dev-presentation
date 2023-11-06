@@ -1,9 +1,7 @@
-# Batch 업무 튜닝기 (1차)
+# 대용량 데이터 처리 튜닝기 (1차)
 
-1. 배치 업무 설명
-    - 배치?
-    - 이번 배치 업무
-2. 배치 업무 성능 향상 전략
+1. 업무 소개
+2. 업무 성능 향상 전략
     - 비동기, 병렬처리
     - Database I/O
     - network I/O
@@ -14,19 +12,7 @@
 
 ---
 
-## 1. 배치 업무 설명
-
-### 배치?
-
-- 사전적 정의 : 한 묶음, 1회분, 일괄 처리하다(동사)
-- 개발에서 Batch : 대용량의 데이터를 처리하는 업무
-    - 대용량? : 2개 이상의 트랜잭션 (HTTP) 요청에 준하는 데이터 량
-- 업무 특성
-    - 대량 I/O (파일 입출력, 데이터베이스 등)
-    - 비동기, 병렬 프로그래밍
-    - Job, Scheduler, Cron 으로 Batch 작업 주기화
-
-### 배치 업무 소개 (이번 작업)
+## 1. 업무 소개
 
 <img src="img.png"  width="90%"/>
 
@@ -35,9 +21,9 @@
     - File I/O : row 수의 제한없는 Excel file
     - Database I/O : Bulk Insert (대상 table 3개)
     - Network I/O : 외부 SMTP 서버 연동
-- 서버 구현이 배치에 준하는 정도로 개발 되지 않으면 사용자 응답 시간이 급격하게 증가할 수 있다
+- 서버에서 업무가 빨리 완료되지 않으면, 사용자 응답 시간이 급격하게 증가할 수 있다
 
-## 2. 배치 업무 성능 향상 전략
+## 2. 업무 성능 향상 전략
 
 ### 비동기, 병렬처리
 
@@ -246,8 +232,8 @@ public void jdbc_template_native_query_async(int bulkSizeParam) throws Exception
     - @ValueSource : 테스트 코드 반복 실행에 사용할 파라미터 지정
 - given-whne-then
     - given : n건 데이터 생성
-    - when : batch 실행
-    - then : batch 결과 검증
+    - when : 업무 실행
+    - then : 업무 결과 검증
 - 테스트 코드 실행 시간 측정
     - System.currentTimeMillis() : 코드 실행 전, 후 시간 측정
 
